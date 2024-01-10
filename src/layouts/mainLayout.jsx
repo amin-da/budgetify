@@ -4,18 +4,18 @@ import wave from "@/assets/wave.svg";
 import Navbar from "@/components/navbar";
 
 //loader
-export const mainLoader = () => {
+export const mainLayoutLoader = () => {
   const userName = fetchData("userName");
   return { userName };
 };
 
-const Main = () => {
+const MainLayout = () => {
   const { userName } = useLoaderData();
 
   return (
-    <div className="flex flex-col justify-between mx-auto h-full">
+    <div className="flex flex-col justify-between items-center h-full overflow-hidden">
       <Navbar userName={userName} />
-      <main className="max-w-7xl mx-auto">
+      <main className="w-[1280px] mx-auto">
         <Outlet />
       </main>
       <img src={wave} alt="" />
@@ -23,4 +23,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainLayout;

@@ -10,11 +10,11 @@ const Navbar = ({ userName }) => {
   }
 
   return (
-    <nav className="w-7xl flex items-center justify-between m-8 text-success">
+    <nav className="w-[1280px] flex justify-between items-center m-8 text-success">
       <NavLink
         to="/"
         aria-label="go to home"
-        className="flex items-center p-4 border-[3px] rounded-md
+        className="flex items-center p-4 border-[3px] rounded-lg
          border-stone-50  hover:border-success transition ease-in-out delay-[50ms]  duration-100 "
       >
         <img src={budget} alt="" className="h-8" />

@@ -2,22 +2,26 @@ import { ToastContainer } from "react-toastify";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //main layouts
-import Main, { mainLoader } from "@/layouts/main";
+import MainLayout, { mainLayoutLoader } from "@/layouts/mainLayout";
 //Routes
 import Dashboard from "@/pages/dashboard";
 import Error from "@/pages/error";
 import { logoutAction } from "@/utils/actions";
+import { dashboardLoader } from "@/pages/dashboard";
+import { dashboardAction } from "@/utils/actions";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main />,
-    loader: mainLoader,
+    element: <MainLayout />,
+    loader: mainLayoutLoader,
     errorElement: <Error />,
     children: [
       {
         index: true,
         element: <Dashboard />,
+        loader: dashboardLoader,
+        action: dashboardAction,
         errorElement: <Error />,
       },
       {
