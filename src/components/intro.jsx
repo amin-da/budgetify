@@ -20,7 +20,7 @@ const Intro = () => {
             placeholder="wahts your name?"
             aria-label="your name"
             className=" input input-bordered input-success w-full max-w-xs mt-8"
-            autocomplete="off"
+            autoComplete="off"
           />
           <button type="submit" className="btn btn-outline  mt-8">
             create account
