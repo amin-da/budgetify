@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+svg {
+  pointer-events: none;
+}
+
+:root {
+  /* fonts */
+  --fs-200: clamp(0.78rem, calc(0.71rem + 0.35vw), 0.96rem);
+  --fs-300: clamp(0.94rem, calc(0.84rem + 0.51vw), 1.2rem);
+  --fs-400: clamp(1.13rem, calc(0.98rem + 0.73vw), 1.5rem);
+  --fs-500: clamp(1.94rem, calc(1.56rem + 1.92vw), 2.93rem);
+  --fs-600: clamp(2.8rem, calc(2.11rem + 3.47vw), 4.58rem);
+  --lh-1: 1;
+  --lh-1-1: 1.1;
+  --lh-1-4: 1.4;
+
+  /* utils */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 40px;
+  --content-sm: 40ch;
+  --content: 60ch;
+  --round-sm: 4px;
+  --round-md: 10px;
+  --round-lg: 25px;
+  --round-full: 100vmax;
+
+  /* toast customizations */
+  --toastify-color-success: hsl(var(--accent));
+}
+
+body {
+  font-family: system-ui, "Segoe UI", Roboto, "Open Sans", "Helvetica Neue";
+  font-size: var(--fs-400);
+  line-height: var(--lh-1-4);
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  background-color: hsl(var(--bkg));
+  color: hsl(var(--text));
+}
+
+/* typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  line-height: var(--lh-1);
+}
+
+h1,
+.h1 {
+  font-size: var(--fs-600);
+}
+
+h2,
+.h2 {
+  font-size: var(--fs-500);
+}
+
+h3,
+.h3 {
+  font-size: var(--fs-400);
+}
+
+
+p {
+  max-width: var(--content);
+}
