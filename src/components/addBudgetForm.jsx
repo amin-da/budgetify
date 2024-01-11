@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import { Form, useFetcher } from "react-router-dom";
-import FormWrapper from "../layouts/formWrapper";
+import { useFetcher } from "react-router-dom";
+import FormWrapper from "@/layouts/formWrapper";
 
 const AddBudgetForm = () => {
   // use useFetcher hook for access to state of form submissions
@@ -33,8 +33,8 @@ const AddBudgetForm = () => {
             type="text"
             id="newBudget"
             name="newBudget"
-            placeholder="LapTop"
-            className="input input-bordered w-full focus:border-success"
+            placeholder="work supplies"
+            className="input input-bordered input-success w-full text-lg"
             ref={focusRef}
           />
         </div>
@@ -50,7 +50,7 @@ const AddBudgetForm = () => {
             name="newBudgetAmount"
             inputMode="decimal"
             placeholder="800$"
-            className="input input-bordered w-full focus:border-success"
+            className="input input-bordered input-success w-full text-lg"
           />
         </div>
         <input type="hidden" name="_action" value="createBudget" />

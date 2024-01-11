@@ -18,7 +18,7 @@ const Navbar = ({ userName }) => {
          border-stone-50  hover:border-success transition ease-in-out delay-[50ms]  duration-100 "
       >
         <img src={budget} alt="" className="h-8" />
-        <span>Budgtefiy</span>
+        <span className="text-2xl">Budgtefiy</span>
       </NavLink>
       {userName && (
         <Form method="post" action="/logout" onSubmit={SubmitForm}>

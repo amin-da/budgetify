@@ -50,7 +50,6 @@ svg {
 
 body {
   font-family: system-ui, "Segoe UI", Roboto, "Open Sans", "Helvetica Neue";
-  font-size: var(--fs-400);
   line-height: var(--lh-1-4);
   font-weight: 400;
   font-synthesis: none;

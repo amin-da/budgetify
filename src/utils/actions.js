@@ -1,5 +1,5 @@
 import { redirect } from "react-router-dom";
-import { createBudget, deleteItem } from "./helpers";
+import { createBudget, deleteItem, createExpense } from "./helpers";
 import { toast } from "react-toastify";
 
 export const logoutAction = async () => {
@@ -33,6 +33,20 @@ export const dashboardAction = async ({ request }) => {
       return toast.success("Budget Created!");
     } catch (error) {
       throw new Error("There was problem for creating your budget");
+    }
+  }
+
+  //new Expense submission
+  if (_action === "createExpense") {
+    try {
+      createExpense({
+        name: values.newExpense,
+        amount: values.newExpenseAmount,
+        budgetId: values.newExpenseBudget,
+      });
+      return toast.success(`Expense ${values.newExpense} Created!`);
+    } catch (error) {
+      throw new Error("There was problem for creating your expense");
     }
   }
 };
