@@ -1,16 +1,47 @@
 import { fetchData } from "@/utils/helpers";
 import { useLoaderData } from "react-router-dom";
 import Intro from "@/components/intro";
+import AddBudgetForm from "@/components/addBudgetForm";
 
 //loader
 export const dashboardLoader = () => {
   const userName = fetchData("userName");
-  return { userName };
+  const budgets = fetchData("budgets");
+  return { userName, budgets };
 };
 
 const Dashboard = () => {
-  const { userName } = useLoaderData();
-  return <div>{userName ? <p>{userName}</p> : <Intro />}</div>;
+  const { userName, budgets } = useLoaderData();
+  return (
+    <div>
+      {userName ? (
+        <div className="h-full">
+          <h1>
+            Welcome back <span className="text-success">{userName}</span>
+          </h1>
+          <div>{budgets ? "" : ""}</div>
+          <div>
+            {budgets && budgets.length > 0 ? (
+              <div className="flex">
+                <AddBudgetForm />
+                <AddExpenseForm budgets={budgets} />
+              </div>
+            ) : (
+              <div className="mt-2 font-semibold text-xl text-pretty">
+                <p className="text-teal-600">
+                  Managing your budget effectively is crucial for peace of mind.
+                </p>
+                <p className="font-bold">Create Budget to get started!</p>
+                <AddBudgetForm />
+              </div>
+            )}
+          </div>
+        </div>
+      ) : (
+        <Intro />
+      )}
+    </div>
+  );
 };
 
 export default Dashboard;

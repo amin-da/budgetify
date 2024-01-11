@@ -22,8 +22,9 @@ const Intro = () => {
             className=" input input-bordered input-success w-full max-w-xs mt-8"
             autoComplete="off"
           />
+          <input type="hidden" name="_action" value="newUser" />
           <button type="submit" className="btn btn-outline  mt-8">
-            create account
+            Create Account
           </button>
         </Form>
       </div>

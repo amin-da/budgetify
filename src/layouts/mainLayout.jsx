@@ -15,7 +15,7 @@ const MainLayout = () => {
   return (
     <div className="flex flex-col justify-between items-center h-full overflow-hidden">
       <Navbar userName={userName} />
-      <main className="w-[1280px] mx-auto">
+      <main className="w-[1280px] mx-auto h-full">
         <Outlet />
       </main>
       <img src={wave} alt="" />

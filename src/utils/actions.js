@@ -1,5 +1,5 @@
 import { redirect } from "react-router-dom";
-import { deleteItem } from "./helpers";
+import { createBudget, deleteItem } from "./helpers";
 import { toast } from "react-toastify";
 
 export const logoutAction = async () => {
@@ -12,11 +12,27 @@ export const logoutAction = async () => {
 
 export const dashboardAction = async ({ request }) => {
   const data = await request.formData();
-  const formData = Object.fromEntries(data);
-  try {
-    localStorage.setItem("userName", JSON.stringify(formData.userName));
-    return toast.success(`Welcom ${formData.userName}`);
-  } catch (error) {
-    throw new Error("There was problem for creating your account");
+  const { _action, ...values } = Object.fromEntries(data);
+
+  //new user submission
+  if (_action === "newUser") {
+    try {
+      localStorage.setItem("userName", JSON.stringify(values.userName));
+      return toast.success(`Welcome ${values.userName}`);
+    } catch (error) {
+      throw new Error("There was problem for creating your account");
+    }
+  }
+  //new Budget submission
+  if (_action === "createBudget") {
+    try {
+      createBudget({
+        name: values.newBudget,
+        amount: values.newBudgetAmount,
+      });
+      return toast.success("Budget Created!");
+    } catch (error) {
+      throw new Error("There was problem for creating your budget");
+    }
   }
 };
