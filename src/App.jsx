@@ -10,8 +10,6 @@ import { logoutAction } from "@/utils/actions";
 import { dashboardLoader } from "@/pages/dashboard";
 import { dashboardAction } from "@/utils/actions";
 
-import wave from "@/assets/wave.svg";
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,9 +35,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="h-dvh">
+    <div className="h-full bg-amber-50">
       <RouterProvider router={router} />
-      <ToastContainer />
+      <ToastContainer position="top-center" />
     </div>
   );
 }

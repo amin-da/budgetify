@@ -44,7 +44,6 @@ export const deleteItem = ({ key }) => {
 };
 
 //calculate presents of Budgets
-
 export const calculateSpentByBudget = (budgetId) => {
   const expenses = fetchData("expenses") ?? [];
   const budgetSpent = expenses.reduce((acc, expense) => {
@@ -60,4 +59,10 @@ export const formatCurrency = (amount) => {
     style: "currency",
     currency: "USD",
   });
+};
+
+//format date
+
+export const formatDateToLocalString = (epoch) => {
+  return new Date(epoch).toLocaleString();
 };

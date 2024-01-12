@@ -3,16 +3,19 @@ import { useLoaderData } from "react-router-dom";
 import Intro from "@/components/intro";
 import AddBudgetForm from "@/components/addBudgetForm";
 import AddExpenseForm from "@/components/addExpenseForm";
+import BudgetItem from "@/components/BudgetItem";
+import ExpenseTable from "../components/expenseTable";
 
 //loader
 export const dashboardLoader = () => {
   const userName = fetchData("userName");
   const budgets = fetchData("budgets");
-  return { userName, budgets };
+  const expenses = fetchData("expenses");
+  return { userName, budgets, expenses };
 };
 
 const Dashboard = () => {
-  const { userName, budgets } = useLoaderData();
+  const { userName, budgets, expenses } = useLoaderData();
   return (
     <div>
       {userName ? (
@@ -22,9 +25,28 @@ const Dashboard = () => {
           </h1>
           <div>
             {budgets && budgets.length > 0 ? (
-              <div className="flex items-center justify-between">
-                <AddBudgetForm />
-                <AddExpenseForm budgets={budgets} />
+              <div className="flex flex-col">
+                <div className="flex items-center justify-between">
+                  <AddBudgetForm />
+                  <AddExpenseForm budgets={budgets} />
+                </div>
+                <h2 className="my-4">Existing Budgets</h2>
+                <div className="w-full flex flex-wrap gap-2 justify-between">
+                  {budgets &&
+                    budgets.map((item) => (
+                      <BudgetItem key={item.id} budget={item} />
+                    ))}
+                </div>
+                {expenses && expenses.length > 0 && (
+                  <div>
+                    <h2 className="my-4">Recent Expenses</h2>
+                    <ExpenseTable
+                      expenses={expenses
+                        .sort((a, b) => b.creatdAt - a.createdAt)
+                        .slice(0, 6)}
+                    />
+                  </div>
+                )}
               </div>
             ) : (
               <div className="mt-2 font-semibold text-xl text-pretty">

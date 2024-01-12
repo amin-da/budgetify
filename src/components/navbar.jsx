@@ -36,7 +36,7 @@ const Navbar = ({ userName }) => {
             type="submit"
             className="btn btn-outline btn-error hover:!text-teal-50"
           >
-            Delete User
+            Delete Account
           </button>
 
           <dialog id="my_modal_3" className="modal" ref={modalRef}>

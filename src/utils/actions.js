@@ -6,6 +6,12 @@ export const logoutAction = async () => {
   deleteItem({
     key: "userName",
   });
+  deleteItem({
+    key: "budgets",
+  });
+  deleteItem({
+    key: "expenses",
+  });
   toast.error("You Deleted acount");
   return redirect("/");
 };
