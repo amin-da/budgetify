@@ -1,7 +1,7 @@
 import { calculateSpentByBudget, formatCurrency } from "../utils/helpers";
 
 const BudgetItem = ({ budget }) => {
-  const { name, id, amount, color } = budget;
+  const { name, id, amount } = budget;
   const spentedBudget = calculateSpentByBudget(id);
   const presentSpentValue = Number((spentedBudget * 100) / amount).toFixed(1);
   const remainingValue = amount - spentedBudget;

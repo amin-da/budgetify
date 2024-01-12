@@ -6,6 +6,12 @@ export const fetchData = (key) => {
   return JSON.parse(localStorage.getItem(key));
 };
 
+//get all items from local storgae
+export const getALLMatchingItems = ({ category, key, value }) => {
+  const data = fetchData(category) ?? [];
+  return data.filter((item) => item[key] === value);
+};
+
 //create budgets
 export const createBudget = ({ name, amount }) => {
   const newItem = {
@@ -20,6 +26,16 @@ export const createBudget = ({ name, amount }) => {
     "budgets",
     JSON.stringify([...existingBudgets, newItem])
   );
+};
+
+//delete item from local storage
+export const deleteExpense = ({ key, id }) => {
+  const existingData = fetchData(key);
+  if (id) {
+    const newData = existingData.filter((item) => item.id !== id);
+    return localStorage.setItem(key, JSON.stringify(newData));
+  }
+  return localStorage.removeItem(key);
 };
 
 //create expense
@@ -39,7 +55,12 @@ export const createExpense = ({ name, amount, budgetId }) => {
 };
 
 // delete item
-export const deleteItem = ({ key }) => {
+export const deleteItem = ({ key, id }) => {
+  const existingData = fetchData(key);
+  if (id) {
+    const newData = existingData.filter((item) => item.id !== id);
+    return localStorage.setItem(key, JSON.stringify(newData));
+  }
   return localStorage.removeItem(key);
 };
 
@@ -62,7 +83,6 @@ export const formatCurrency = (amount) => {
 };
 
 //format date
-
 export const formatDateToLocalString = (epoch) => {
   return new Date(epoch).toLocaleString();
 };

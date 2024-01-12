@@ -55,4 +55,33 @@ export const dashboardAction = async ({ request }) => {
       throw new Error("There was problem for creating your expense");
     }
   }
+
+  //delete Expense
+  if (_action === "deleteExpense") {
+    try {
+      deleteItem({
+        key: "expenses",
+        id: values.expenseId,
+      });
+      return toast.success("Expense deleted!");
+    } catch (error) {
+      throw new Error("There was problem deleting your expense");
+    }
+  }
+};
+
+export const expensesPageAction = async ({ request }) => {
+  const data = await request.formData();
+  const { _action, ...values } = Object.fromEntries(data);
+  if (_action === "deleteExpense") {
+    try {
+      deleteItem({
+        key: "expenses",
+        id: values.expenseId,
+      });
+      return toast.success("Expense deleted!");
+    } catch (error) {
+      throw new Error("There was problem deleting your expense");
+    }
+  }
 };
