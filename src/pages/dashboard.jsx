@@ -1,5 +1,5 @@
 import { fetchData } from "@/utils/helpers";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Intro from "@/components/intro";
 import AddBudgetForm from "@/components/addBudgetForm";
 import AddExpenseForm from "@/components/addExpenseForm";
@@ -45,6 +45,7 @@ const Dashboard = () => {
                         .sort((a, b) => b.creatdAt - a.createdAt)
                         .slice(0, 6)}
                     />
+                  
                   </div>
                 )}
               </div>

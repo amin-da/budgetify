@@ -4,7 +4,7 @@ const Error = () => {
   const error = useRouteError();
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col gap-10 justify-center items-center h-full">
+    <div className="flex flex-col gap-10 justify-center items-center h-dvh">
       <h1>Oh ! we've got a problem!</h1>
       <p>{error.message || error.statusText}</p>
       <div className="flex gap-4">

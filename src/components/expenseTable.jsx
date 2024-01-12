@@ -1,9 +1,10 @@
 import { formatDateToLocalString, formatCurrency } from "@/utils/helpers";
+import { Link, useLoaderData } from "react-router-dom";
 
 const ExpenseTable = ({ expenses }) => {
-    console.log('expenses',expenses);
+    console.log(expenses);
   return (
-    <div className="overflow-x-auto border-2 hover:ring-4 ring-offset-4 ring-success border-dashed rounded-xl transition-all duration-150">
+    <div className="overflow-x-auto flex flex-col  hover:ring-4 ring-offset-4 ring-success rounded-xl transition-all duration-150">
       <table className="table table-zebra text-center rounded-xl  bg-amber-50">
         {/* head */}
         <thead className="text-lg">
@@ -23,6 +24,11 @@ const ExpenseTable = ({ expenses }) => {
           ))}
         </tbody>
       </table>
+      {expenses.length == 6 && (
+        <Link to={"expenses"} className="btn btn-success self-center m-4 text-white text-base">
+          View all expenses
+        </Link>
+      )}
     </div>
   );
 };

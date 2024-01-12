@@ -4,11 +4,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //main layouts
 import MainLayout, { mainLayoutLoader } from "@/layouts/mainLayout";
 //Routes
-import Dashboard from "@/pages/dashboard";
+import Dashboard, { dashboardLoader } from "@/pages/dashboard";
 import Error from "@/pages/error";
 import { logoutAction } from "@/utils/actions";
-import { dashboardLoader } from "@/pages/dashboard";
 import { dashboardAction } from "@/utils/actions";
+import ExpensesPage, { expensesdLoader } from "@/pages/ExpensesPage";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +25,11 @@ const router = createBrowserRouter([
         errorElement: <Error />,
       },
       {
+        path: "expenses",
+        element: <ExpensesPage />,
+        loader: expensesdLoader,
+      },
+      {
         path: "logout",
         action: logoutAction,
         errorElement: <Error />,
@@ -35,7 +40,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="h-full bg-amber-50">
+    <div className="h-dvh">
       <RouterProvider router={router} />
       <ToastContainer position="top-center" />
     </div>
