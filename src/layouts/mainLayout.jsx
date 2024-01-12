@@ -13,12 +13,12 @@ const MainLayout = () => {
   const { userName } = useLoaderData();
 
   return (
-    <div className="flex flex-col justify-between items-center h-full overflow-hidden">
+    <div className="flex flex-col justify-between items-center h-full">
       <Navbar userName={userName} />
-      <main className="w-[1280px] mx-auto h-full">
+      <main className="w-[1280px] mx-auto">
         <Outlet />
       </main>
-      <img src={wave} alt="" />
+      <img src={wave} alt="wave-image" />
     </div>
   );
 };

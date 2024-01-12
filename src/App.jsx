@@ -10,6 +10,8 @@ import { logoutAction } from "@/utils/actions";
 import { dashboardLoader } from "@/pages/dashboard";
 import { dashboardAction } from "@/utils/actions";
 
+import wave from "@/assets/wave.svg";
+
 const router = createBrowserRouter([
   {
     path: "/",
