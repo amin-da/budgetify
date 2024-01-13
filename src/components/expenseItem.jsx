@@ -5,8 +5,7 @@ import {
 } from "@/utils/helpers";
 import { Link, useFetcher } from "react-router-dom";
 
-
-const ExpenseItem = ({ expense, index }) => {
+const ExpenseItem = ({ expense, index, showBudget = true }) => {
   //
   const fetcher = useFetcher();
 
@@ -16,17 +15,18 @@ const ExpenseItem = ({ expense, index }) => {
     value: expense.budgetId,
   })[0];
 
-  console.log("budget", budget);
-
   return (
     <>
       <td>{index + 1}</td>
       <td>{expense.name}</td>
       <td>{formatCurrency(expense.amount)}</td>
       <td>{formatDateToLocalString(expense.createdAt)}</td>
-      <td className="btn text-center border-success border-2 mt-3 w-[80%] hover:btn-success hover:text-white">
-        <Link to={`/budget/${budget.id}`}>{budget?.name}</Link>
-      </td>
+      {showBudget ? (
+        <td className="btn text-center border-success border-2 mt-3 w-[80%] hover:btn-success hover:text-white">
+          <Link to={`/budget/${budget.id}`}>{budget?.name}</Link>
+        </td>
+      ) : null}
+
       <td>
         <fetcher.Form method="post">
           <input type="hidden" name="_action" value="deleteExpense" />

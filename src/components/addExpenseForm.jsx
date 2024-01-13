@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import { useFetcher } from "react-router-dom";
 import FormWrapper from "@/layouts/formWrapper";
 
-const AddExpenseForm = ({ budgets }) => {
+const AddExpenseForm = ({ budgets, showCategory = false }) => {
   const titleExpence =
     budgets.length === 1 && `${budgets.map((item) => item.name)}`;
 
@@ -24,7 +24,7 @@ const AddExpenseForm = ({ budgets }) => {
       <fetcher.Form
         method="post"
         ref={fromRef}
-        className="w-full flex flex-col gap-2"
+        className="w-full flex flex-col gap-2 h-full justify-between mt-2"
       >
         <div className="w-full flex gap-2">
           <div className="flex flex-col w-full gap-2">
@@ -58,7 +58,6 @@ const AddExpenseForm = ({ budgets }) => {
           </div>
         </div>
 
-        {/* */}
         <div
           className={`flex flex-col gap-2 ${
             budgets.length === 1 ? "hidden" : ""
@@ -74,7 +73,7 @@ const AddExpenseForm = ({ budgets }) => {
             className="select select-success w-full text-lg"
           >
             {budgets
-              .sort((a, b) => a.createdAt - b.createdAt)
+              .sort((a, b) => b.createdAt - a.createdAt)
               .map((budget) => (
                 <option key={budget.id} value={budget.id} className="text-lg">
                   {budget.name}
@@ -82,6 +81,7 @@ const AddExpenseForm = ({ budgets }) => {
               ))}
           </select>
         </div>
+
         <input type="hidden" name="_action" value="createExpense" />
         <button
           type="submit"

@@ -1,9 +1,7 @@
-
 import { Link } from "react-router-dom";
 import ExpenseItem from "./expenseItem";
 
-const ExpenseTable = ({ expenses }) => {
-
+const ExpenseTable = ({ expenses, showBudget = true }) => {
   return (
     <div className="overflow-x-auto flex flex-col  hover:ring-4 ring-offset-4 ring-success rounded-xl transition-all duration-150">
       <table className="table table-zebra text-center rounded-xl  bg-amber-50">
@@ -14,14 +12,18 @@ const ExpenseTable = ({ expenses }) => {
             <th>Name</th>
             <th>Amount</th>
             <th>Date & Time</th>
-            <th>Budget</th>
+            {showBudget ? <th>Budget</th> : null}
             <th></th>
           </tr>
         </thead>
         <tbody>
           {expenses.map((item, index) => (
             <tr key={item.id} className="text-center">
-              <ExpenseItem expense={item} index={index} />
+              <ExpenseItem
+                expense={item}
+                index={index}
+                showBudget={showBudget}
+              />
             </tr>
           ))}
         </tbody>

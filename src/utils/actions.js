@@ -1,5 +1,10 @@
 import { redirect } from "react-router-dom";
-import { createBudget, deleteItem, createExpense } from "./helpers";
+import {
+  createBudget,
+  deleteItem,
+  createExpense,
+  getALLMatchingItems,
+} from "./helpers";
 import { toast } from "react-toastify";
 
 export const logoutAction = async () => {
@@ -84,4 +89,58 @@ export const expensesPageAction = async ({ request }) => {
       throw new Error("There was problem deleting your expense");
     }
   }
+};
+
+export const budgetPageAction = async ({ request }) => {
+  const data = await request.formData();
+  const { _action, ...values } = Object.fromEntries(data);
+  if (_action === "deleteExpense") {
+    try {
+      deleteItem({
+        key: "expenses",
+        id: values.expenseId,
+      });
+      return toast.success("Expense deleted!");
+    } catch (error) {
+      throw new Error("There was problem for deleting your expense");
+    }
+  }
+
+  //new Expense submission
+  if (_action === "createExpense") {
+    try {
+      createExpense({
+        name: values.newExpense,
+        amount: values.newExpenseAmount,
+        budgetId: values.newExpenseBudget,
+      });
+      return toast.success(`Expense ${values.newExpense} Created!`);
+    } catch (error) {
+      throw new Error("There was problem for creating your expense");
+    }
+  }
+};
+
+export const deleteBudget = ({ params }) => {
+  try {
+    deleteItem({
+      key: "budgets",
+      id: params.id,
+    });
+    const associatedExpenses = getALLMatchingItems({
+      category: "expenses",
+      key: "budgetId",
+      value: params.id,
+    });
+    associatedExpenses.forEach((item) => {
+      deleteItem({
+        key: "expenses",
+        id: item.id,
+      });
+    });
+    toast.success("budget deleted successfully!");
+  } catch (error) {
+    throw new Error("There was problem for deleting your budget");
+  }
+  return redirect("/");
 };
