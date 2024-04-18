@@ -12,7 +12,7 @@ import {
   expensesPageAction,
   deleteBudget,
 } from "../src/utils/actions";
-import ExpensesPage, { expensesdLoader } from "../src/pages/expensesPage";
+import ExpensesPage, { expensesdLoader } from "./pages/expenses_page";
 import BudgetPage, { budgetLoader } from "../src/pages//budgetPage";
 import Test, { testAction, testLoader } from "../src/pages//test";
 
