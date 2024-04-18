@@ -1,4 +1,4 @@
-import { fetchData } from "@/utils/helpers";
+import { fetchData } from "../utils/helpers";
 import { useLoaderData } from "react-router-dom";
 import ExpenseTable from "../components/expenseTable";
 

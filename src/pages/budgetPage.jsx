@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import { getALLMatchingItems } from "../utils/helpers";
-import BudgetItem from "@/components/budgetItem";
-import AddExpenseForm from "@/components/addExpenseForm";
+import BudgetItem from "../components/budgetItem";
+import AddExpenseForm from "../components/addExpenseForm";
 import ExpenseTable from "../components/expenseTable";
 
 //loader

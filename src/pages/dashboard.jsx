@@ -1,9 +1,9 @@
-import { fetchData } from "@/utils/helpers";
+import { fetchData } from "../utils/helpers";
 import { useLoaderData } from "react-router-dom";
-import Intro from "@/components/intro";
-import AddBudgetForm from "@/components/addBudgetForm";
-import AddExpenseForm from "@/components/addExpenseForm";
-import BudgetItem from "@/components/BudgetItem";
+import Intro from "../components/intro";
+import AddBudgetForm from "../components/addBudgetForm";
+import AddExpenseForm from "../components/addExpenseForm";
+import BudgetItem from "../components/BudgetItem";
 import ExpenseTable from "../components/expenseTable";
 
 //loader
