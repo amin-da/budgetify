@@ -2,7 +2,7 @@ import {
   formatDateToLocalString,
   formatCurrency,
   getALLMatchingItems,
-} from "@/utils/helpers";
+} from "../utils/helpers";
 import { Link, useFetcher } from "react-router-dom";
 
 const ExpenseItem = ({ expense, index, showBudget = true }) => {

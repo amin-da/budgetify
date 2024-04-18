@@ -1,7 +1,7 @@
 import { Outlet, useLoaderData } from "react-router-dom";
-import { fetchData } from "@/utils/helpers";
-import wave from "@/assets/wave.svg";
-import Navbar from "@/components/navbar";
+import { fetchData } from "../utils/helpers";
+import wave from "../assets/wave.svg";
+import Navbar from "../components/navbar";
 
 //loader
 export const mainLayoutLoader = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Form } from "react-router-dom";
-import calculator from "@/assets/calculator.png";
+import calculator from "../assets/calculator.png";
 
 const Intro = () => {
   return (

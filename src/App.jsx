@@ -11,7 +11,7 @@ import {
   logoutAction,
   expensesPageAction,
   deleteBudget,
-} from "@/utils/actions";
+} from "../src/utils/actions";
 import ExpensesPage, { expensesdLoader } from "../src/pages/expensesPage";
 import BudgetPage, { budgetLoader } from "../src/pages//budgetPage";
 import Test, { testAction, testLoader } from "../src/pages//test";

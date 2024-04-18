@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import { useFetcher } from "react-router-dom";
-import FormWrapper from "@/layouts/formWrapper";
+import FormWrapper from "../layouts/formWrapper";
 
 const AddExpenseForm = ({ budgets, showCategory = false }) => {
   const titleExpence =
