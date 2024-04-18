@@ -1,5 +1,5 @@
 
-##  modern budget manager app withe cool UI!
+##  Modern Budget Manager App Withe Cool UI/UX !
 
 __Bootstrapped with React & Vite__
 
