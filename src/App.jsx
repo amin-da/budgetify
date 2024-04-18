@@ -3,8 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //main layouts
 import MainLayout, { mainLayoutLoader } from "@/layouts/mainLayout";
 //Routes
-import Dashboard, { dashboardLoader } from "@/pages/dashboard";
-import Error from "@/pages/error";
+import Dashboard, { dashboardLoader } from "../src/pages//dashboard";
+import Error from "../src/pages//error";
 import {
   dashboardAction,
   budgetPageAction,
@@ -12,8 +12,9 @@ import {
   expensesPageAction,
   deleteBudget,
 } from "@/utils/actions";
-import ExpensesPage, { expensesdLoader } from "@/pages/expensesPage";
-import BudgetPage, { budgetLoader } from "@/pages/budgetPage";
+import ExpensesPage, { expensesdLoader } from "../src/pages/expensesPage";
+import BudgetPage, { budgetLoader } from "../src/pages//budgetPage";
+import Test, { testAction, testLoader } from "../src/pages//test";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,13 @@ const router = createBrowserRouter([
         element: <ExpensesPage />,
         loader: expensesdLoader,
         action: expensesPageAction,
+        errorElement: <Error />,
+      },
+      {
+        path: "test",
+        element: <Test />,
+        loader: testLoader,
+        action: testAction,
         errorElement: <Error />,
       },
       {
