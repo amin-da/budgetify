@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useFetcher } from "react-router-dom";
-import FormWrapper from "../layouts/formWrapper";
+import FormWrapper from "../layouts/form_wrapper";
 
 const AddBudgetForm = () => {
   // use useFetcher hook for access to state of form submissions

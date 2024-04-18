@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ExpenseItem from "./expenseItem";
+import ExpenseItem from "./expense_item";
 
 const ExpenseTable = ({ expenses, showBudget = true }) => {
   return (

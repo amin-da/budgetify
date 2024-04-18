@@ -1,8 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import { getALLMatchingItems } from "../utils/helpers";
-import BudgetItem from "../components/budgetItem";
-import AddExpenseForm from "../components/addExpenseForm";
-import ExpenseTable from "../components/expenseTable";
+import BudgetItem from "../components/budget-item";
+import AddExpenseForm from "../components/add_expensef_orm";
+import ExpenseTable from "../components/expense_table";
 
 //loader
 export const budgetLoader = async ({ params }) => {

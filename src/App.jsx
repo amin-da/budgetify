@@ -1,7 +1,7 @@
 import { ToastContainer } from "react-toastify";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //main layouts
-import MainLayout, { mainLayoutLoader } from "../src/layouts/mainLayout";
+import MainLayout, { mainLayoutLoader } from "./layouts/main_layout";
 //Routes
 import Dashboard, { dashboardLoader } from "../src/pages//dashboard";
 import Error from "../src/pages//error";

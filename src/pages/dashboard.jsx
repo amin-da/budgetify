@@ -1,10 +1,10 @@
 import { fetchData } from "../utils/helpers";
 import { useLoaderData } from "react-router-dom";
 import Intro from "../components/intro";
-import AddBudgetForm from "../components/addBudgetForm";
-import AddExpenseForm from "../components/addExpenseForm";
-import BudgetItem from "../components/BudgetItem";
-import ExpenseTable from "../components/expenseTable";
+import AddBudgetForm from "../components/add_budget_form";
+import AddExpenseForm from "../components/add_expensef_orm";
+import BudgetItem from "../components/budget-item";
+import ExpenseTable from "../components/expense_table";
 
 //loader
 export const dashboardLoader = () => {

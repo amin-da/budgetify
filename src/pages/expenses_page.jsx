@@ -1,6 +1,6 @@
 import { fetchData } from "../utils/helpers";
 import { useLoaderData } from "react-router-dom";
-import ExpenseTable from "../components/expenseTable";
+import ExpenseTable from "../components/expense_table";
 
 //loader
 export const expensesdLoader = () => {
